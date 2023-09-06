@@ -4,10 +4,11 @@ public class Program
 {
     private static char _key = ' ';
     private static string _errorMessage = "";
+    private static List<TODOTask> _tasks = new() { new TODOTask("Clean room", "My mom asked to clean my room", DateOnly.Parse(DateTime.Now.ToShortDateString()), DateOnly.Parse(DateTime.Now.AddDays(5).ToShortDateString())) };
+    
 
     public static void Main(string[] args)
     {
-
         while (true)
         {
             Console.Clear();
@@ -112,6 +113,10 @@ public class Program
     public static void DisplayTasks()
     {
         Console.WriteLine("Viewing tasks!");
+
+        foreach (var task in _tasks)
+            Console.WriteLine(task.ToString());
+
         Console.WriteLine("0. Return to menu");
     }
 
